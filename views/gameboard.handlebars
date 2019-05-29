@@ -1,0 +1,228 @@
+<head>
+    <meta charset="utf-8">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/styles/dashboard.css" media="screen" title="no title" charset="utf-8">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <h1 class="battle-heading">Round <span id="round-counter">1</span></h1>
+            <table id="gameboard">
+                <tbody>
+                    <tr>
+                        <td id="0"></td>
+                        <td id="1"></td>
+                        <td id="2"></td>
+                        <td id="3"></td>
+                        <td id="4"></td>
+                    </tr>
+                    <tr>
+                        <td id="5"></td>
+                        <td id="6"></td>
+                        <td id="7"></td>
+                        <td id="8"></td>
+                        <td id="9"></td>
+                    </tr>
+                    <tr>
+                        <td id="10"></td>
+                        <td id="11"></td>
+                        <td id="12"></td>
+                        <td id="13"></td>
+                        <td id="14"></td>
+                    </tr>
+                    <tr>
+                        <td id="15"></td>
+                        <td id="16"></td>
+                        <td id="17"></td>
+                        <td id="18"></td>
+                        <td id="19"></td>
+                    </tr>
+                    <tr>
+                        <td id="20"></td>
+                        <td id="21"></td>
+                        <td id="22"></td>
+                        <td id="23"></td>
+                        <td id="24"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="player-col" class="col-lg-3 px-md-2 px-lg-0">
+            <div class="player-card-top player-num">
+                <div>
+                    <h5>Moves: <span class="player-moves"></span></h5>
+                    <button class="btn btn-lg mb-3 ml-4 mr-3" id="roll-dice" style="background-color: #000000ad"
+                        disabled>Roll!</button>
+                    <button class="btn btn-lg mb-3" id="end-turn" style="background-color: #000000ad" disabled>End
+                        Turn</button>
+                </div>
+                <div class="progress">
+                    <div id="timer-bar" class="progress-bar bg-success" style="width:100%" role="progressbar"
+                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="20"></div>
+                </div>
+            </div>
+            <div id="roll-div"></div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <!-- Character Select Modal -->
+    <div class="modal fade bd-example-modal-lg" id="playerSelectModelId" data-turn="" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role=" document">
+            <div class="modal-content"
+                style="background: linear-gradient(135deg, #964870 0%,#937785 17%,#c4aeba 27%,#cec6c0 79%,#bc462f 100%)">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="heading">
+                            <h2 class="battle-heading">Player <span id="character-turn">0
+                                </span> is choosing</h2>
+                            <h3 style="text-align: center">You are Player <span id="your-num">0</span></h3>
+                        </div>
+                        <hr>
+                        <div id="container-character">
+                        </div>
+                        <div class="modal-footer">
+                            <div class="your-turn-div">YOUR TURN!</div>
+                            <button type="button" class="btn btn-primary" data-player="" id="select-char">Select
+                                Character</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Battle Phase Modal -->
+    <div class="modal fade bd-example-modal-lg" id="battle-phase-modal" data-turn="" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role=" document">
+            <div class="modal-content" style="background: linear-gradient(135deg, #fb83fa 0%,#97c6d8 75%,#97c6d8 100%)">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="heading">
+                            <h1 class="battle-heading">Battle!</h1>
+                        </div>
+                        <div id="battle-div">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img id="battle-image-1" src="../images/Crab.png"
+                                        class="char-battle-img center-block">
+                                    <div class="health-bar">
+                                        <div class="">
+                                            <h5 class="battle-text" style="float: left; color: #008f95">Player 1</h5>
+                                        </div><br><br>
+                                        <div class="progress">
+                                            <div id="hp-bar-1" class="progress-bar bg-danger" role="progressbar"
+                                                style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <img id="battle-image-2" src="../images/ChiliPepper.png"
+                                        class="char-battle-img center-block">
+                                    <div class="health-bar">
+                                        <div class="">
+                                            <h5 class="battle-text" style="float: left; color: #eb6e80">Player 2</h5>
+                                        </div><br><br>
+                                        <div class="progress">
+                                            <div id="hp-bar-2" class="progress-bar bg-danger" role="progressbar"
+                                                style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="battle-footer">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="your-battle-div">YOUR TURN!</div>
+                                    <h4>Player <span id="attack-turn">0</span> is attacking...</h4>
+                                </div>
+                                <div class="col-md-7">
+                                    <button data-id="1" class="btn attack-btn" id="button-attack-1"
+                                        style="background-color: #008f95">Attack
+                                        Player 1!</button>
+                                    <button data-id="2" class="btn attack-btn" id="button-attack-2"
+                                        style="background-color: #eb6e80">Attack
+                                        Player 2!</button>
+                                    {{!-- <button data-id="3" class="btn attack-btn" id="button-attack-3"
+                                        style="background-color: #e9b000">Attack
+                                        Player 3!</button>
+                                    <button data-id="4" class="btn attack-btn" id="button-attack-4"
+                                        style="background-color: #e24e42">Attack
+                                        Player 4!</button> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Winner Modal -->
+    <div class="modal fade bd-example-modal-lg" id="endGameModal" data-turn="" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role=" document">
+            <div class="modal-content" style="background: linear-gradient(151deg, #f1e767 0%,#dd931b 100%)">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div id="container-character">
+                            <div class="justify-content-center">
+                                <div class="row justify-content-center">
+                                    <h1 style="z-index: 1" class="battle-heading">Player <span id="winner-num">0</span>
+                                        is the Grocery
+                                        Champion!</h1>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <img id="winner-image" src="">
+                                </div>
+                                <div class="row justify-content-center">
+                                    <h3>Score: <span id="winner-score">0</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/roll-a-die.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/gameboard.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

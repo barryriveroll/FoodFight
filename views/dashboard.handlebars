@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dashboard</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Google Font/Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+    rel="stylesheet" type="text/css">
+
+
+  <!-- Custom CSS -->
+  <link href="/styles/dashboard.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target="page-top" id="home">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Food Fight</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#about">About</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#game-rules">Game Rules</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#the-team">The Team</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">
+        <div class="welcome"></div>
+      </h1>
+      <h3 class="mb-5">
+        <em>If you are a returning player, feel free to queue up for a game. Otherwise, we reccommend taking a look at
+          the rule section located below first. Enjoy!</em>
+      </h3>
+      <input id="join-game" class="btn btn-primary btn-xl" href="/game" type="submit" value="Join Game" />
+      <br>
+      <button type="button" class="btn btn-primary" id="reset-button" style="margin-top: 6px;">
+        Flip the Table
+      </button>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  <section class="content-section bg-light" id="about">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2>Food Fight is a four player web browser game built by four junior developers within a time span of two
+            weeks.</h2>
+          <p class="lead mb-5">The core technologies used in this game are; JavaScript, Socket.io, Express.JS, Node.JS,
+            MySQL, Bootstrap 4, Handlebars, & CSS
+          </p>
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#game-rules">Game Rules</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Rules -->
+  <section class="content-section bg-primary text-white text-center" id="game-rules">
+    <div class="container">
+      <div class="content-section-heading">
+        <h2 class="text-secondary mb-0">Game Rules</h2>
+        <h3 class="mb-5">Food Fight takes place over the course of five rounds, with each round being divided into two
+          phases.</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="fas fa-gamepad"></i>
+          </span>
+          <h4>
+            <strong>Start Of Game</strong>
+          </h4>
+          <p class="text-faded mb-0">Player order will be randomly determined and players will be presented with a
+            character select screen. Players will sequentially select a character.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+          <h4>
+            <strong>The Shopping Phase</strong>
+          </h4>
+          <p class="text-faded mb-0">Random items will be generated across the map page.Items give players an increase
+            to their attack value for the following battle phase. Each player will roll dice at the start of their turn
+            to determine how many
+            spaces they are allowed to move. Characters cannot pass through each other, so after a player has picked up
+            an item, they can try and block another player from picking up an item.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="fas fa-fist-raised"></i>
+          </span>
+          <h4>
+            <strong>The Battle Phase</strong>
+          </h4>
+          <p class="text-faded mb-0">This phase of the round is a four way free-for-all turned based battle. The player
+            will have the option to attack any of the other three players. Players will gain points based off what place
+            they come in during the battle phase.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="fas fa-trophy"></i>
+          </span>
+          <h4>
+            <strong>Champion Of The Grocery Store</strong>
+          </h4>
+          <p class="text-faded mb-0">After five rounds have been completed the user with the most points will be
+            delcared "Champion of the Grocery Store"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Team -->
+  <section class="content-section" id="the-team">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Meet The Team</h2>
+      </div>
+      <div class="row">
+        <!-- Team Member 1 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="/images/img/barry.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Barry Riveroll</h5>
+              <div class="card-text text-black-50"><a href="https://www.linkedin.com/in/barry-riveroll-684602166/">
+                  LinkedIn </a>| <a href="https://github.com/barryriveroll"> Github</a></div>
+            </div>
+          </div>
+        </div>
+        <!-- Team
+                  Member 2 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="/images/img/alex.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Alex Lloyd</h5>
+              <div class="card-text text-black-50"><a href="https://www.linkedin.com/in/alex-lloyd-a17858101/">
+                  LinkedIn</a>
+                | <a href="https://github.com/AlexLloyd89">Github</a></div>
+            </div>
+          </div>
+        </div> <!-- Team Member 3 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="/images/img/rajita.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Rajita Maharjan</h5>
+              <div class="card-text text-black-50"><a href="https://www.linkedin.com/in/rajita-maharjan-38922a109/">
+                  LinkedIn </a>| <a href="https://github.com/marajita"> Github</a></div>
+            </div>
+          </div>
+        </div>
+        <!-- Team
+                  Member 4 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="/images/img/ron.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Ron Wazny</h5>
+              <div class="card-text text-black-50"><a href="https://www.linkedin.com/in/ron-wazny-70196a37/">
+                  LinkedIn
+                </a>|<a href="https://github.com/rwazny">
+                  Github </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/rwazny/Project-2" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/js/dashboard.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  {{!-- <script src="https://code.jquery.com/jquery-1.11.1.js"></script> --}}
+
+</body>
+
+</html>
