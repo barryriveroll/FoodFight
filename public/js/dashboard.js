@@ -119,7 +119,8 @@ $(function() {
   });
   var socket = io();
 
-  $("#join-game").click(function() {
+  $("#join-game").css("cursor", "pointer");
+  $(document).on("click", "#join-game", function() {
     var username = window.location.pathname.split("/")[2];
     $.get("/api/players", function(data) {
       playerNum = data.length;
